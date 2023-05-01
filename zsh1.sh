@@ -27,6 +27,7 @@ do
         sudo pacman -S --needed zsh curl git fzy
     elif [ $choice -eq 6 ]; then
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -o .cow https://git.archuser.org/firebadnofire/pzsh/raw/branch/main/cow
 rm ~/.zshrc
 curl -o .zshrc https://git.archuser.org/firebadnofire/pzsh/raw/branch/main/zshrc
 cd ~/.oh-my-zsh/custom/plugins
