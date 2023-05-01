@@ -117,6 +117,9 @@ alias copy='cp'
 alias cls='clear'
 alias search='apt search'
 alias nf='neofetch --ascii_distro'
+alias port='sudo lsof -i -P -n | grep'
 w
 cat ~/.cow
-timedatectl
+TZ='America/New_York' date
+date
+
