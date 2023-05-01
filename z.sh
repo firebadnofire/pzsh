@@ -1,4 +1,4 @@
-curl -o ~/zsh.sh https://raw.githubusercontent.com/firebadnofire/pzsh/main/zsh1.sh
+curl -o /tmp/zsh.sh https://git.archuser.org/firebadnofire/pzsh/raw/branch/main/zsh1.sh
 chmod +x ~/zsh.sh
 clear
 echo run ~/zsh.sh
