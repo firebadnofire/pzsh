@@ -108,18 +108,35 @@ alias stops="sudo systemctl stop"
 alias stats="sudo systemctl status"
 alias restarts="sudo systemctl restart"
 alias kills="sudo systemctl kill"
-alias aptf="apt-fast"
 alias sudo='sudo '
-alias update='sudo apt update'
-alias upgrade='sudo apt upgrade'
 alias tp='ping -c 4 google.com'
-alias copy='cp'
+alias copy='rsync -ah --progress'
 alias cls='clear'
 alias search='apt search'
 alias nf='neofetch --ascii_distro'
 alias port='sudo lsof -i -P -n | grep'
+
+if command -v apt >/dev/null 2>&1; then
+    alias ins='sudo apt install'; alias update='sudo apt update'; alias upgrade='sudo apt upgrade'; alias search='apt search'; PKGMGR=apt
+else
+    sleep 0
+fi
+
+if command -v pacman >/dev/null 2>&1; then
+    alias ins='sudo pacman -S'; alias update='sudo pacman -Syu'; alias upgrade='sudo pacman -Syu'; alias search='pacman -Q'; PKGMGR=pacman
+else
+    sleep 0
+fi
+
+if command -v dnf >/dev/null 2>&1; then
+    alias ins='sudo dnf install'; alias update='sudo dnf update'; alias upgrade='sudo dnf upgrade'; alias search='sudo dnf search'; PKGMGR=dnf
+else
+    sleep 0
+fi
+
 w
 cat ~/.cow
 TZ='America/New_York' date
 date
 
+echo Package manager: $PKGMGR
