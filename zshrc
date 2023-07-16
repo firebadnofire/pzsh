@@ -101,6 +101,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export MAKEFLAGS="-j$(nproc)"
+
 export GPG_TTY=$(tty)
 alias f="find . -type f | fzy"
 alias starts="sudo systemctl start"
@@ -112,7 +114,6 @@ alias sudo='sudo '
 alias tp='ping -c 4 google.com'
 alias copy='rsync -ah --progress'
 alias cls='clear'
-alias search='apt search'
 alias nf='neofetch --ascii_distro'
 alias port='sudo lsof -i -P -n | grep'
 
@@ -123,7 +124,7 @@ else
 fi
 
 if command -v pacman >/dev/null 2>&1; then
-    alias ins='sudo pacman -S'; alias update='sudo pacman -Syu'; alias upgrade='sudo pacman -Syu'; alias search='pacman -Q'; PKGMGR=pacman
+    alias ins='sudo pacman -S'; alias update='sudo pacman -Syu'; alias upgrade='sudo pacman -Syu'; alias search='pacman -Ss'; PKGMGR=pacman
 else
     sleep 0
 fi
